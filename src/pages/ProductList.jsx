@@ -146,8 +146,8 @@ export default function ProductList() {
               </div>
 
               {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="flex justify-center gap-2 mt-10">
+              {/* {totalPages > 1 && (
+                <div className="flex justify-center gap-2 mt-10 flex-wrap">
                   <button onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0}
                     className="btn-secondary px-4 py-2 text-sm disabled:opacity-40">← Prev</button>
                   {Array.from({ length: totalPages }, (_, i) => (
@@ -159,7 +159,28 @@ export default function ProductList() {
                   <button onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))} disabled={page === totalPages - 1}
                     className="btn-secondary px-4 py-2 text-sm disabled:opacity-40">Next →</button>
                 </div>
-              )}
+              )} */}
+                        {totalPages > 1 && (
+            <div className="flex flex-wrap justify-center items-center gap-2 mt-10">
+              <button onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0}
+                className="btn-secondary px-4 py-2 text-sm disabled:opacity-40">← Prev</button>
+
+              {Array.from({ length: totalPages }, (_, i) => i)
+                .filter(i => i === 0 || i === totalPages - 1 || Math.abs(i - page) <= 1)
+                .map((i, idx, arr) => (
+                  <div key={i} className="flex items-center gap-2">
+                    {idx > 0 && arr[idx - 1] !== i - 1 && <span className="px-1 text-gray-400">...</span>}
+                    <button onClick={() => setPage(i)}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${page === i ? 'bg-primary-500 text-white' : 'btn-secondary'}`}>
+                      {i + 1}
+                    </button>
+                  </div>
+                ))}
+
+              <button onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))} disabled={page === totalPages - 1}
+                className="btn-secondary px-4 py-2 text-sm disabled:opacity-40">Next →</button>
+            </div>
+          )}
             </>
           )}
         </div>
