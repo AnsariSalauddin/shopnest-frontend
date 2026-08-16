@@ -46,9 +46,9 @@ export default function ProductCard({ product }) {
       </div>
 
       {/* Info */}
-      <div className="p-4 flex flex-col flex-1">
+      <div className="p-4 flex flex-col flex-1 min-w-0">
         <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{product.category}</p>
-        <h3 className="font-medium text-gray-800 text-sm line-clamp-2 mb-2 flex-1">{product.name}</h3>
+        <h3 className="font-medium text-gray-800 text-sm line-clamp-2 mb-2 flex-1 break-words">{product.name}</h3>
 
         {/* Rating */}
         <div className="flex items-center gap-1 mb-3">
