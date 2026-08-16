@@ -111,7 +111,7 @@ export default function ProductList() {
         </aside>
 
         {/* Product grid */}
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           {/* Header bar */}
           <div className="flex items-center justify-between mb-5">
             <div>
@@ -141,7 +141,7 @@ export default function ProductList() {
             />
           ) : (
             <>
-              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4 min-w-0">
                 {products.map(p => <ProductCard key={p.id} product={p} />)}
               </div>
 
