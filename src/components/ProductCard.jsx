@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <Link to={`/products/${product.id}`} className="group card overflow-hidden hover:shadow-md transition-shadow duration-200 flex flex-col">
+    <Link to={`/products/${product.id}`} className="group card overflow-hidden hover:shadow-md transition-shadow duration-200 flex flex-col min-w-0">
       {/* Image */}
       <div className="relative aspect-square bg-gray-50 overflow-hidden">
         {product.images?.[0] ? (

@@ -50,6 +50,7 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
   timeout: 15000,
 })
+console.log(import.meta.env.VITE_API_URL)
 
 // Attach JWT token to every request
 api.interceptors.request.use((config) => {
